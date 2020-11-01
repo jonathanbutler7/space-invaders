@@ -56,7 +56,7 @@ def main():
 
     player_vel = 5
 
-    ship = Ship(300, 650)
+    player = Player(300, 650)
 
     clock = pygame.time.Clock()
 
@@ -69,7 +69,7 @@ def main():
         WIN.blit(lives_label, (10, 10))
         WIN.blit(level_label, (WIDTH - level_label.get_width() - 10, 10))
 
-        ship.draw(WIN)
+        player.draw(WIN)
 
         pygame.display.update()
 
@@ -82,13 +82,13 @@ def main():
                 run = False
 
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_a] and ship.x - player_vel > 0: # left                
-            ship.x -= player_vel
-        if keys[pygame.K_d] and ship.x + player_vel + 50 < WIDTH: # right
-            ship.x += player_vel
-        if keys[pygame.K_w] and ship.y - player_vel > 0: # up
-            ship.y -= player_vel
-        if keys[pygame.K_s] and ship.y + player_vel + 50 < HEIGHT: # down
-            ship.y += player_vel
+        if keys[pygame.K_a] and player.x - player_vel > 0: # left                
+            player.x -= player_vel
+        if keys[pygame.K_d] and player.x + player_vel + 50 < WIDTH: # right
+            player.x += player_vel
+        if keys[pygame.K_w] and player.y - player_vel > 0: # up
+            player.y -= player_vel
+        if keys[pygame.K_s] and player.y + player_vel + 50 < HEIGHT: # down
+            player.y += player_vel
             
 main()
